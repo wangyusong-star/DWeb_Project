@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+#navigation{
+	display:inline;
+	float:left;
+}
+
+#inaline{
+	display:inline;
+}
+
+
+
+
+#search{
+	padding: 0;
+	margin: 0;
+}
+.search{
+	width: 30%;            
+	margin: 100px auto;
+	display: flex;
+}
+.search input{
+	float: left;
+	flex: 4;
+	height: 30px;
+	outline: none;
+	border: 2px solid red;
+	box-sizing: border-box;				
+	padding-left: 10px;
+}
+.search button{
+	float: right;
+	flex: 1;
+	height: 30px;
+	width:20%;
+	background-color: red;
+	color: white;
+	border-style: none;
+	outline: none;
+}
+.search button i{
+	font-style: normal;
+}
+.search button:hover{
+	font-size: 8px;
+}
+
+
+
+
+
+
+.top{
+	height: auto;
+    width:100%;
+    margin-left: 0;
+    background:rgb(189, 181, 181);
+    position: fixed;
+    top: 0;
+    margin-bottom: 5px;
+}
+.top ul{
+    width: auto;
+    list-style-type: none;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 5%;
+    padding: 0;
+
+}
+.top li {
+    float:left;  
+    margin-right:2%;
+    position: relative;
+    overflow: hidden;
+}
+
+.top li a{
+    display: block;
+    color:white;
+    text-align: center;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none;
+    
+}
+.top li a:hover{
+    background-color: #111;
+}
+.top ul li ul{
+    margin-left: -0.2px;
+    background:rgb(189, 181, 181);
+    position: relative;
+    display: none; 
+
+}
+.top ul li ul li{
+    float:none;
+    text-align: center;
+}
+.top ul li:hover ul{
+    display: block;
+}
+body{
+    background:#eff3f5;
+}
