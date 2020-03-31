@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>注册界面</title>
+<title>登陆界面</title>
 </head>
 <body>
-<form action="/OnlineShopping/ARegist" method="post">
+<form action="/OnlineShopping/ALogin" method="post">
 		<table border="1" align="center" width="0.2">
 			<tr
-				style="background-color: lightgreen; color: white; font-size = 20px; font-weight: bold; text-align: center">
+				style="background-color: lightred; color: white; font-size = 20px; font-weight: bold; text-align: center">
 				<td colspan="2"><b>UserRegist</b></td>
 				
 				</tr>
@@ -23,12 +23,7 @@
 				<td>Password</td>
 				<td><input type="password" name="again_pwd" id=""></td>
 				</tr>
-				
-				<tr align="center">
-				<td>ConfirmPassword</td>
-				<td><input type="password" name="pwd" id=""></td>
-				</tr>
-				
+
 				<tr align="center">
 				<td colspan="2"><input type="submit" value="Regist"></td>
 				</tr>
