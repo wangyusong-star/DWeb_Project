@@ -61,7 +61,7 @@ public class XMLOperateUser {
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();        
         User person = new User();
-        Element beQuery = (Element)root.selectSingleNode("//User[@id="+id+"]");
+        Element beQuery = (Element)root.selectSingleNode("//USer[@id="+id+"]");
         if(beQuery!=null){
             person.setUsername(beQuery.elementText("username"));
             person.setPassword(beQuery.elementText("password"));
@@ -69,34 +69,35 @@ public class XMLOperateUser {
         }
         return person;                   
     }
-    /*
+     /*
      * 增加xml数据
      * */
+
     public static int AddClinetLoginUser(String userName,String passWord) throws Exception{
         File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         if (!dir.exists()) {
              dir.createNewFile();
         }
-        int id = 1;
+        int uniqueid = 1;
         String dirPath = dir+"";
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();
-        List<Element> list = root.elements("person");
+        List<Element> list = root.elements("User");
         if(!list.isEmpty()||list.size()!=0){
             int count = list.size();
-            Element lastperson = list.get(count-1);
-            String value = lastperson.attributeValue("id");
-            id = Integer.parseInt(value)+1;
+            Element lastuser = list.get(count-1);
+            String value = lastuser.attributeValue("id");
+            uniqueid = Integer.parseInt(value)+1;
         }        
 //        int id = (int) ((Math.random()*9+1)*1000);
         Element newPerson = root.addElement("User");
-        newPerson.addAttribute("id", id+"");
+        newPerson.addAttribute("id", uniqueid+"");
         Element username = newPerson.addElement("username");
         username.setText(userName);
         Element password = newPerson.addElement("password");
         password.setText(passWord);
         UtilsForXML.writeToXML(dom, dirPath);
-        return id;
+        return uniqueid;
     }
     
     /*
@@ -127,8 +128,7 @@ public class XMLOperateUser {
         return id;
     }
     
-
-	public User findByUsername(String username){
+	public static User findByUsername(String username){
 	    
 	    File file = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
 		SAXReader sax = new SAXReader();
@@ -138,13 +138,12 @@ public class XMLOperateUser {
 			Document doc = sax.read(file);
 			// 通过xpath查询得到Element
 	
-			org.dom4j.Element ele = (org.dom4j.Element) doc.selectSingleNode("//user[@username='" + username + "']");
+			org.dom4j.Element ele = (org.dom4j.Element) doc.selectSingleNode("//User[@username=" + username + "]");
 		
 			// 校验ele是否为null，如果为null，返回null
 		
 			if(ele == null) return  null;
-			
-		
+	
 			// 把ele的数据封装到User对象中
 			 
 			User user = new User();

@@ -15,6 +15,7 @@ public class RegistServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.setContentType("text/html;charset=UTF-8");
+		PrintWriter pw = resp.getWriter();
 		String name;
 		String pwd;
 		String againpwd;
@@ -23,20 +24,17 @@ public class RegistServlet extends HttpServlet {
 		againpwd = req.getParameter("again_pwd");
 		
 		if(pwd!=againpwd) {
-			//MyDefaultHandle de = new MyDefaultHandle();
+			pw.print("<html>");pw.print("<head>");pw.print("<title>");pw.print("</head>");pw.print("<body>");pw.print("<h1>");pw.print("<a = herf>");
+			pw.print("两次输入的密码不一致");
+		}else {
+			try {
+				XMLOperateUser.AddClinetLoginUser(name, pwd);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			pw.print("注册成功");
+			pw.flush();
 		}
-		
-		try {
-			XMLOperateUser.AddClinetLoginUser(name, pwd);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		PrintWriter pw = resp.getWriter();
-		pw.print("注册成功");
-		pw.flush();
 	}
-
 }

@@ -1,12 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <UserInfo> 
-  <User id="2"> 
+  <User id="1"> 
     <username>www</username>  
     <password>111</password> 
   </User>  
-  <User id="2">
-    <username>wang21</username>
-    <password>123456</password>
+  <User id="2"> 
+    <username>wang21</username>  
+    <password>123456</password> 
+  </User>  
+  <User id="1"> 
+    <username>wert</username>  
+    <password>123</password> 
+  </User>  
+  <User id="1"> 
+    <username>wanyi</username>  
+    <password>222</password> 
+  </User>  
+  <User id="1"> 
+    <username>wax</username>  
+    <password>333</password> 
+  </User>  
+  <User id="1"> 
+    <username>wretrr</username>  
+    <password>123</password> 
+  </User>  
+  <User id="2"> 
+    <username>tyu</username>  
+    <password>567</password> 
+  </User>  
+  <User id="3">
+    <username>uio</username>
+    <password>345</password>
   </User>
 </UserInfo>
