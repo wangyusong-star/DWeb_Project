@@ -3,11 +3,19 @@ package bean;
 public class User {
 	private String username;
 	private String password;
-	public User(String username,String userpassword){
+	private int id;
+	public User(String username,String userpassword,int id){
 		this.username = username;
 		this.password = userpassword;
+		this.id = id;
 	}
 	public User(){}
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
 	public String getUsername() {
 		return username;
 	}

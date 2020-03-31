@@ -9,9 +9,10 @@
 	</classpathentry>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="E:/jar包/Saxreader包/dom4j-2.1.1.jar"/>
-	<classpathentry kind="lib" path="E:/jar包/Saxreader包/jaxen-1.1-beta-6.jar.zip"/>
 	<classpathentry kind="lib" path="D:/Tomcat9/lib/servlet-api.jar"/>
-	<classpathentry kind="lib" path="E:/jar包/Saxreader包/dom4j-1.6.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="E:/Web_Project/DWeb_Project/OnlineShopping/WebContent/WEB-INF/lib/jaxen-1.1-beta-6.jar.zip"/>
+	<classpathentry kind="lib" path="E:/Web_Project/DWeb_Project/OnlineShopping/WebContent/WEB-INF/lib/dom4j-2.1.1.jar"/>
+	<classpathentry kind="lib" path="E:/Web_Project/DWeb_Project/OnlineShopping/WebContent/WEB-INF/lib/jaxen-1.1.2.jar.zip"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
