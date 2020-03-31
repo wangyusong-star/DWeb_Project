@@ -2,26 +2,6 @@
 
 <UserInfo> 
   <User id="1"> 
-    <username>www</username>  
-    <password>111</password> 
-  </User>  
-  <User id="2"> 
-    <username>wang21</username>  
-    <password>123456</password> 
-  </User>  
-  <User id="1"> 
-    <username>wert</username>  
-    <password>123</password> 
-  </User>  
-  <User id="1"> 
-    <username>wanyi</username>  
-    <password>222</password> 
-  </User>  
-  <User id="1"> 
-    <username>wax</username>  
-    <password>333</password> 
-  </User>  
-  <User id="1"> 
     <username>wretrr</username>  
     <password>123</password> 
   </User>  
@@ -29,8 +9,16 @@
     <username>tyu</username>  
     <password>567</password> 
   </User>  
-  <User id="3">
-    <username>uio</username>
-    <password>345</password>
+  <User id="3"> 
+    <username>uio</username>  
+    <password>345</password> 
+  </User>  
+  <User id="4"> 
+    <username>qwe</username>  
+    <password>111</password> 
+  </User>  
+  <User id="5">
+    <username>u1io</username>
+    <password>123</password>
   </User>
 </UserInfo>

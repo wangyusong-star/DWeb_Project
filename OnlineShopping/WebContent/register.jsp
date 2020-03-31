@@ -21,12 +21,12 @@
 				
 				<tr align="center">
 				<td>Password</td>
-				<td><input type="password" name="again_pwd" id=""></td>
+				<td><input type="password" name="pwd" id=""></td>
 				</tr>
 				
 				<tr align="center">
 				<td>ConfirmPassword</td>
-				<td><input type="password" name="pwd" id=""></td>
+				<td><input type="password" name="again_pwd" id=""></td>
 				</tr>
 				
 				<tr align="center">

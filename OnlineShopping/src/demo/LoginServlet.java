@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import bean.User;
 import dao.XMLOperateUser;
 
 /**
@@ -25,24 +26,33 @@ public class LoginServlet extends HttpServlet {
 
 		name = req.getParameter("username");
 		pwd = req.getParameter("pwd");
-/*	
-		if() {
-			pw.print("<html>"
-			+"<head>"+"<title>注册失败</title>"+"</head>"
-			+"<body>"
-			+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">两次输入的密码不一致!点击返回注册界面</a>"+"</h1>"
-			+"</body>"
-			+"</html>");
-		}else {
-			try {
-				XMLOperateUser.AddClinetLoginUser(name, pwd);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			*/
-			pw.print("注册成功");
-			pw.flush();
+		
+		int num = 0;
+		try {
+			num = XMLOperateUser.RegistUserNum();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
-
+		User user = new User();
+		for(int i = 1;i < num;i ++) {
+			try {
+				user = XMLOperateUser.QueryClinetLoginUserById(i);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			if(user.getUsername().equals(name)) {			
+				pw.print("<html>"
+				+"<head>"+"<title>LoginFailed</title>"+"</head>"
+				+"<body>"
+				+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">The username already exits!</a>"+"</h1>"
+				+"</body>"
+				+"</html>");
+				}else {
+					pw.print("Login Success");
+					pw.flush();
+				}
+		}
+	}
 }

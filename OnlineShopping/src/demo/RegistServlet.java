@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.RegistUserInfoToXML;
 import dao.XMLOperateUser;
 
 public class RegistServlet extends HttpServlet {
@@ -23,22 +22,32 @@ public class RegistServlet extends HttpServlet {
 		pwd = req.getParameter("pwd");
 		againpwd = req.getParameter("again_pwd");
 		
-		if(pwd!=againpwd) {
+		if(!pwd.equals(againpwd)) {
 			pw.print("<html>"
-			+"<head>"+"<title>注册失败</title>"+"</head>"
+			+"<head>"+"<title>RegistFailed</title>"+"</head>"
 			+"<body>"
-			+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">两次输入的密码不一致!点击返回注册界面</a>"+"</h1>"
+			+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">The two passwords are inconsistent! Click to return to the registration interface</a>"+"</h1>"
 			+"</body>"
 			+"</html>");
-		}else {
-			try {
-				XMLOperateUser.AddClinetLoginUser(name, pwd);
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			pw.print("注册成功");
-			pw.flush();
 		}
+		if(!XMLOperateUser.CheckUserExists(name)) {
+			pw.print("<html>"
+			+"<head>"+"<title>RegistFailed</title>"+"</head>"
+			+"<body>"
+			+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">Username is already exists!</a>"+"</h1>"
+			+"</body>"
+			+"</html>");
+		}
+			else {
+					try {
+						XMLOperateUser.AddClinetLoginUser(name, pwd);
+					} catch (Exception e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					pw.print("Regist Success");
+					pw.flush();
+				}
 	}
+	
 }

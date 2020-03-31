@@ -16,7 +16,7 @@ public class XMLOperateUser {
      * 查询全部xml
      * */
     public static List<User> ListClinetLoginUser() throws Exception{
-        File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");        
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");        
         if (!dir.exists()) {
             dir.createNewFile();
             Document dom = DocumentHelper.createDocument();
@@ -56,12 +56,12 @@ public class XMLOperateUser {
      * 根据person的属性id查询xml
      * */
     public static User QueryClinetLoginUserById(int id) throws Exception{
-        File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();        
         User person = new User();
-        Element beQuery = (Element)root.selectSingleNode("//USer[@id="+id+"]");
+        Element beQuery = (Element)root.selectSingleNode("//User[@id="+id+"]");
         if(beQuery!=null){
             person.setUsername(beQuery.elementText("username"));
             person.setPassword(beQuery.elementText("password"));
@@ -74,7 +74,7 @@ public class XMLOperateUser {
      * */
 
     public static int AddClinetLoginUser(String userName,String passWord) throws Exception{
-        File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         if (!dir.exists()) {
              dir.createNewFile();
         }
@@ -100,11 +100,55 @@ public class XMLOperateUser {
         return uniqueid;
     }
     
+    public static int RegistUserNum() throws Exception{
+    	int num = 0;
+    	File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        if (!dir.exists()) {
+             dir.createNewFile();
+        }
+        String dirPath = dir+"";
+        Document dom = UtilsForXML.getDocument(dirPath);        
+        Element root = dom.getRootElement();
+        List<Element> list = root.elements("User");
+        if(!list.isEmpty()||list.size()!=0){
+            int count = list.size();
+            Element lastuser = list.get(count-1);
+            String value = lastuser.attributeValue("id");
+            num = Integer.parseInt(value)+1;
+        }
+        return num;
+    }
+    public static boolean CheckUserExists(String username){
+    	int num = 0;
+    	boolean flag = true;
+		try {
+			num = XMLOperateUser.RegistUserNum();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		for(int i = 1;i < num;i ++) {
+			User user = new User();
+			try {
+				user = XMLOperateUser.QueryClinetLoginUserById(i);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			if(user.getUsername().equals(username)) {
+				flag = true;						//找到了一样的用户名
+			}else {
+				flag = false;
+			}
+		}
+		return flag;
+    }
     /*
      * 根据person属性id修改xml数据
      * */
     public static int UpdateUser(int id,String userName,String passWord) throws Exception{
-        File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();
@@ -118,7 +162,7 @@ public class XMLOperateUser {
      * 根据person属性id删除xml数据
      * */
     public static int DeleteClinetLoginUser(int id) throws Exception{
-        File dir = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();
@@ -158,6 +202,6 @@ public class XMLOperateUser {
 		}
 	}
     public static void main(String[] args) throws Exception {
-
+    
 	}
 }

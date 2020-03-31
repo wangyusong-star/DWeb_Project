@@ -11,7 +11,7 @@
 		<table border="1" align="center" width="0.2">
 			<tr
 				style="background-color: lightred; color: white; font-size = 20px; font-weight: bold; text-align: center">
-				<td colspan="2"><b>UserRegist</b></td>
+				<td colspan="2"><b>UserLogin</b></td>
 				
 				</tr>
 				<tr align="center">
@@ -21,11 +21,11 @@
 				
 				<tr align="center">
 				<td>Password</td>
-				<td><input type="password" name="again_pwd" id=""></td>
+				<td><input type="password" name="pwd" id=""></td>
 				</tr>
 
 				<tr align="center">
-				<td colspan="2"><input type="submit" value="Regist"></td>
+				<td colspan="2"><input type="submit" value="Login"></td>
 				</tr>
 				
 		</table>
