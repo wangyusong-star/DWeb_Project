@@ -20,7 +20,7 @@ public class XMLOperateUser {
         if (!dir.exists()) {
             dir.createNewFile();
             Document dom = DocumentHelper.createDocument();
-            Element root = dom.addElement("User");
+            //Element root = dom.addElement("User");
             String dirpath = dir+"";
             UtilsForXML.writeToXML(dom, dirpath);
         }

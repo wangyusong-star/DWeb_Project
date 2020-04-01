@@ -35,8 +35,9 @@ public class UtilsForXML {
      */
     public static void writeToXML(Document dom ,String xmlPath) throws Exception{
         
-        //首先创建样式和输出流
-        OutputFormat format = new OutputFormat().createPrettyPrint();
+        new OutputFormat();
+		//首先创建样式和输出流
+        OutputFormat format = OutputFormat.createPrettyPrint();
         OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(xmlPath),"utf-8");
         //OutputStream out = new FileOutputStream(xmlPath);
         XMLWriter writer = new XMLWriter(out,format);

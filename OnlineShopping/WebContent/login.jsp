@@ -10,17 +10,17 @@
 <form action="/OnlineShopping/ALogin" method="post">
 		<table border="1" align="center" width="0.2">
 			<tr
-				style="background-color: lightred; color: white; font-size = 20px; font-weight: bold; text-align: center">
+				style="background-color: red; color: white; font-size = 20px; font-weight: bold; text-align: center">
 				<td colspan="2"><b>UserLogin</b></td>
 				
 				</tr>
 				<tr align="center">
-				<td>UserName</td>
+				<td style="background-color: orange">UserName</td>
 				<td><input type="text" name="username" id=""></td>
 				</tr>
 				
 				<tr align="center">
-				<td>Password</td>
+				<td style="background-color: orange">Password</td>
 				<td><input type="password" name="pwd" id=""></td>
 				</tr>
 

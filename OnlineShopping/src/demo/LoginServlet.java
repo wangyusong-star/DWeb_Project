@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
 		pwd = req.getParameter("pwd");
 		
 		int num = 0;
+		int flag = 0;
 		try {
 			num = XMLOperateUser.RegistUserNum();
 		} catch (Exception e1) {
@@ -42,17 +43,19 @@ public class LoginServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			if(user.getUsername().equals(name)) {			
-				pw.print("<html>"
-				+"<head>"+"<title>LoginFailed</title>"+"</head>"
-				+"<body>"
-				+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">The username already exits!</a>"+"</h1>"
-				+"</body>"
-				+"</html>");
-				}else {
-					pw.print("Login Success");
-					pw.flush();
+			if(user.getUsername().equals(name) && user.getPassword().equals(pwd)) {		
+				pw.print("Login Success!");
+				flag = 1;
+				break;
 				}
+		}
+		if(flag == 0) {
+			pw.print("<html>"
+			+"<head>"+"<title>LoginFailed</title>"+"</head>"
+			+"<body>"
+			+"<h1>"+"<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">Username or Passsword is wrong!</a>"+"</h1>"
+			+"</body>"
+			+"</html>");
 		}
 	}
 }
