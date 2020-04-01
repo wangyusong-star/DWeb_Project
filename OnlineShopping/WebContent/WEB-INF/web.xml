@@ -26,4 +26,13 @@
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/ALogin</url-pattern>
   </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>ChangeUserInfoServlet</servlet-name>
+  	<servlet-class>demo.ChangeUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ChangeUserInfoServlet</servlet-name>
+  	<url-pattern>/AChangeInfo</url-pattern>
+  </servlet-mapping>
 </web-app>
