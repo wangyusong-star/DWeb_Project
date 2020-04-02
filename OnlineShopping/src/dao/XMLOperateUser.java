@@ -51,9 +51,9 @@ public class XMLOperateUser {
         }
         return persons;        
     }
-    
+/*-----------------------------------------调用的方法----------------------------------------------------*/    
     /*
-     * 根据person的属性id查询xml
+     * 根据User的属性id查询xml
      * */
     public static User QueryClinetLoginUserById(int id) throws Exception{
         File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
@@ -72,7 +72,6 @@ public class XMLOperateUser {
      /*
      * 增加xml数据
      * */
-
     public static int AddClinetLoginUser(String userName,String passWord) throws Exception{
         File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         if (!dir.exists()) {
@@ -145,19 +144,19 @@ public class XMLOperateUser {
 		return flag;
     }
     /*
-     * 根据person属性id修改xml数据
+     * 根据User属性username修改xml数据
      * */
-    public static int UpdateUser(int id,String userName,String passWord) throws Exception{
+    public static void UpdateUserInfo(String username,String password) throws Exception {
         File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
         String dirPath = dir+"";        
-        Document dom = UtilsForXML.getDocument(dirPath);        
+        Document dom = UtilsForXML.getDocument(dirPath); 
         Element root = dom.getRootElement();
-        Element beQuery = (Element)root.selectSingleNode("//person[@id="+id+"]");
-        beQuery.element("username").setText(userName);
-        beQuery.element("password").setText(passWord);
+        Element beQuery = (Element)root.selectSingleNode("//User");
+        beQuery.element("password").setText(password);
         UtilsForXML.writeToXML(dom, dirPath);
-        return id;
     }
+/*^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^*/    
+
     /*
      * 根据person属性id删除xml数据
      * */
@@ -202,6 +201,5 @@ public class XMLOperateUser {
 		}
 	}
     public static void main(String[] args) throws Exception {
-    
 	}
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
+
 <UserInfo> 
   <User id="1"> 
-    <username>wretrr</username>  
+    <username>wangyusong</username>  
     <password>123</password> 
   </User>  
   <User id="2"> 
@@ -17,8 +18,8 @@
     <username>qwe</username>  
     <password>111</password> 
   </User>  
-  <User id="5">
-    <username>u1io</username>
-    <password>123</password>
-  </User>
+  <User id="5"> 
+    <username>u1io</username>  
+    <password>123</password> 
+  </User> 
 </UserInfo>
