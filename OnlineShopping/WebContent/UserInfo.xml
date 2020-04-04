@@ -21,5 +21,9 @@
   <User id="5"> 
     <username>u1io</username>  
     <password>123</password> 
-  </User> 
+  </User>  
+  <User id="6">
+    <username>xilefei</username>
+    <password>222</password>
+  </User>
 </UserInfo>

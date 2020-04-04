@@ -30,7 +30,7 @@ public class RegistServlet extends HttpServlet {
 			+"</body>"
 			+"</html>");
 		}
-		if(!XMLOperateUser.CheckUserExists(name)) {
+		if(XMLOperateUser.CheckUserExists(name)) {
 			pw.print("<html>"
 			+"<head>"+"<title>RegistFailed</title>"+"</head>"
 			+"<body>"
