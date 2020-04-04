@@ -7,52 +7,87 @@
 </head>
 
 <body>
-<header>
-	<h1>Shopping!</h1>
-</header>
-
-<div class="search">
-            <input type="text" placeholder="请输入..." name="" id="" value="" />
-            <button><i>搜索</i></button>
+<div class="fixedtop">
+	<a style="padding-left:20px; font-size:14px; text-decoration: none">Hi!Welcome!</a>
+    <a href="login.jsp" style="padding-left:40px; font-size:14px; text-decoration: none">Please Login</a>
+    <a href="register.jsp" style="padding-left:60px; font-size:14px; text-decoration: none">Free Regist</a>
+	
+    
+    
+    <div class="dropdown">
+	<a class="dropbtn">my shopping</a>
+	<div class="dropdown-content">
+    <a href="#">Stuff I've Brought</a>
+    <a href="#">Stuff I've Sold out</a>
+  	</div>
+	</div>
 </div>
+<h1 style="float:left">Shopping!</h1>
+<div class="search">
+            <input type="text" placeholder="Search for..." name="" id="" value="" />
+            <button><i><b>Go</b></i></button>
+</div>
+
 
 <div class="top">
 	<center> 
 	<ul>
-		<li><a href="#">一级菜单</a></li>
-		<li><a href="#">一级菜单</a></li>
-		<li><a href="#">一级菜单</a></li>
-		<li><a href="#"><b>一级菜单</b></a></li>
-		<li><a href="#">一级菜单</a></li>
-		<li><a href="#">一级菜单</a>	
+		<li><a href="clothes.jsp"><b>Clothes</b></a>
+        <ul>
+        <li><a href="clothes.jsp"><b>clothes for man</b></a></li>
+        <li><a href="clothes.jsp"><b>clothes for woman</b></a></li>
+        <li><a href="clothes.jsp"><b>clothes for child</b></a></li>
+        </ul>
+        </li>
+        
+		<li><a href="#"><b>Electronic product</b></a>
+        <ul>
+        <li><a href="#"><b>computer</b></a></li>
+        <li><a href="#"><b>phone</b></a></li>
+        <li><a href="#"><b>TV</b></a></li>
+        </ul>
+        </li>
+		
+        <li><a href="#"><b>Foods</b></a>
+        <ul>
+        <li><a href="#"><b>vegetable</b></a></li>
+        <li><a href="#"><b>meat</b></a></li>
+        <li><a href="#"><b>sea food</b></a></li>
+        </ul>
+        </li>
+        
+		<li><a href="#"><b>Furnitures</b></a>
+        <ul>
+        <li><a href="#"><b>table</b></a></li>
+        <li><a href="#"><b>chair</b></a></li>
+        <li><a href="#"><b>sofa</b></a></li>
+        </ul>
+        </li>
+        
+		<li><a href="#"><b>Drugs</b></a>
+        <ul>
+        <li><a href="#"><b>health products</b></a></li>
+        <li><a href="#"><b>healing medicine</b></a></li>
+        </ul>
+        </li>
+		
+        <li><a href="#"><b>Books</b></a>	
 		<ul>
-		<li><a href="#">二级菜单</a></li>
-		<li><a href="#">二级菜单</a></li>
+		<li><a href="#"><b>books for child</b></a></li>
+		<li><a href="#"><b>books for literature</b></a></li>
 		</ul>
-		</li>        
+		</li> 
+               
 	</ul>
 	</center>      
 </div>
 
-<div id="navigation">
-	<aside>
-	<nav>
-    	<h2 align="center">链接</h2>
-        <ul>
-        	<li style="display:inline;"><a>网站1</a></li>
-            <li style="display:inline;"><a>网站1</a></li>
-            <li style="display:inline;"><a>网站1</a></li>
-        </ul>
-    </nav>
-	</aside>
+
+<div>
+	<center>
+    <img src="pic/index/phone.png"/>
+    </center>
 </div>
 
-<footer>
-	<ul>
-    	<li>关于</li>
-        <li>关于</li>
-        <li>关于</li>
-    </ul>
-</footer>
 </body>
 </html>
