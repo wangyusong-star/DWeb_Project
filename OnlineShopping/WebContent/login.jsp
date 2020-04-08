@@ -34,7 +34,7 @@ form
 }
 body
 {
-	background:url("pic/login/bkd.jpg");
+	background:url("pic/login/bkg.jpg");
 	background-size:1550px 750px;
 	background-repeat:no-repeat;
 	padding:150px;
