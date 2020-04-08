@@ -50,7 +50,7 @@ body
 		    <label for="lname">Password</label><br/>
 		    <input type="password" id="lname" name="pwd" placeholder="please input your password"><br/>
 		    <input type="submit" value="login">
-		    <a href="#">forget password?</a>
+		    <a href="#">forget password?</a>&ensp;&ensp;&ensp;
 		    <a href="register.jsp">register</a><br/>
   		</form>	
 </body>
