@@ -30,7 +30,7 @@ public class RegistServlet extends HttpServlet {
 			+"</body>"
 			+"</html>");
 		}
-		if(XMLOperateUser.CheckUserExists(name)) {
+		else if(XMLOperateUser.CheckUserExists(name)) {
 			pw.print("<html>"
 			+"<head>"+"<title>RegistFailed</title>"+"</head>"
 			+"<body>"
@@ -38,16 +38,16 @@ public class RegistServlet extends HttpServlet {
 			+"</body>"
 			+"</html>");
 		}
-			else {
-					try {
-						XMLOperateUser.AddClinetLoginUser(name, pwd);
-					} catch (Exception e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					pw.print("Regist Success");
-					pw.flush();
+		else {
+				try {
+					XMLOperateUser.AddClinetLoginUser(name, pwd);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
+				pw.print("Regist Success");
+				pw.flush();
+			}
 	}
 	
 }

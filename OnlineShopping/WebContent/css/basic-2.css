@@ -50,68 +50,65 @@ img {
 	font-size: 8px;
 }
 
-
-.fixedtop{
-	background-color: #DDDDDD;
-	width:100%;
-	margin-left:auto;
-	top:0;
-	height:28px;
-	position:fixed;
-}
-
-.dropbtn {
-    background-color: #DDDDDD;
-	font-size:14px;
-    color: black;
-	padding:3px;
-    font-size: 14px;
-}
-
-/* 容器 <div> - 需要定位下拉内容 */
-.dropdown {
-    position: relative;
-    display: inline-block;
-    margin-left: 700px;/*在这改变位置*/
-}
-
-/* 下拉内容 (默认隐藏) */
-.dropdown-content {
-    display: none;
-	font-size:12px;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 80px;
-    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.2);
-}
-
-/* 下拉菜单的链接 */
-.dropdown-content a {
-    color: black;
-	font-size:12px;
-    padding: 8px 10px;
-    text-decoration: none;
-    display: block;
-}
-
-/* 鼠标移上去后修改下拉菜单链接颜色 */
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-/* 在鼠标移上去后显示下拉菜单 */
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* 当下拉内容显示后修改下拉按钮的背景颜色
-.dropdown:hover .dropbtn {
-    background-color: #FFFFFF;
-}
-*/
-
 .right{
 	margin-top:0;
 	margin-left:1100px;
 }
+
+
+.fixedtop{
+	height: 35px;
+    width:100%;
+    background:#6F9;
+    top: 0;
+    margin-bottom: 5px;
+}
+.fixedtop ul{
+    width: auto;
+    list-style-type: none;
+    white-space:nowrap;
+    overflow: hidden;
+    margin-left: 40%;
+    padding: 0;
+
+}
+.fixedtop li {
+    float:right;  
+    margin-right:2%;
+    position: relative;
+    overflow: hidden;
+}
+.fixedtop ul a{
+	margin-left:20px;
+}
+.fixedtop li a{
+    display: block;
+    color:white;
+    padding: 3px;
+    overflow: hidden;
+    text-decoration: none;
+    
+}
+.fixedtop li a:hover{
+	color:#F66;
+    background-color: #FC0;
+}
+.fixedtop ul li ul{
+    margin-left: -0.2px;
+    background:#F99;
+    position: relative;
+    display: none; 
+
+}
+.fixedtop ul li ul li{
+    float:none;
+    text-align: center;
+}
+.fixedtop ul li:hover ul{
+    display: block;
+}
+
+
 
 
 .top{
