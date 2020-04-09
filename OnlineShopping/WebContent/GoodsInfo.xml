@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<GoodsInfo> 
+	<Good goodid="1"> 
+    <goodname>phone</goodname>  
+    <price>4768</price> 
+    <stock>100</stock> 
+    <state>On</state> 
+    <describe>apple's product</describe> 
+	</Good>  
+	<Good goodid="2"> 
+    <goodname>phone</goodname>  
+    <price>4768</price> 
+    <stock>100</stock> 
+    <state>On</state> 
+    <describe>apple's product</describe> 
+	</Good> 
+</GoodsInfo>

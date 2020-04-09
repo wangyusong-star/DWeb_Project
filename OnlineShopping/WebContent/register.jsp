@@ -28,7 +28,7 @@
 				<td style="background-color: skyblue">ConfirmPassword</td>
 				<td><input type="password" name="again_pwd" id=""></td>
 				</tr>
-				
+
 				<tr align="center">
 				<td colspan="2"><input type="submit" value="Regist"></td>
 				</tr>

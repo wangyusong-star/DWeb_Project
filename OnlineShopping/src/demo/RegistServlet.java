@@ -48,6 +48,7 @@ public class RegistServlet extends HttpServlet {
 				pw.print("Regist Success");
 				pw.flush();
 			}
+
 	}
 	
 }

@@ -35,4 +35,13 @@
   	<servlet-name>ChangeUserInfoServlet</servlet-name>
   	<url-pattern>/AChangeInfo</url-pattern>
   </servlet-mapping>
+  
+  	<servlet>
+		<servlet-name>ShowGoodsViewServlet</servlet-name>
+		<servlet-class>demo.ShowGoodsViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowGoodsViewServlet</servlet-name>
+		<url-pattern>/ShowGoodsView</url-pattern>
+	</servlet-mapping>
 </web-app>
