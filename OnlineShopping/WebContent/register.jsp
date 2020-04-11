@@ -4,36 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>注册界面</title>
+<link rel="stylesheet" type="text/css" href="css/register.css">
+<title>register</title>
 </head>
 <body>
-<form action="/OnlineShopping/ARegist" method="post">
-		<table border="1" align="center" width="0.2">
-			<tr
-				style="background-color: lightgreen; color: white; font-size = 20px; font-weight: bold; text-align: center">
-				<td colspan="2"><b>UserRegist</b></td>
-				
-				</tr>
-				<tr align="center">
-				<td style="background-color: skyblue">UserName</td>
-				<td><input type="text" name="username" id=""></td>
-				</tr>
-				
-				<tr align="center">
-				<td style="background-color: skyblue">Password</td>
-				<td><input type="password" name="pwd" id=""></td>
-				</tr>
-				
-				<tr align="center">
-				<td style="background-color: skyblue">ConfirmPassword</td>
-				<td><input type="password" name="again_pwd" id=""></td>
-				</tr>
-
-				<tr align="center">
-				<td colspan="2"><input type="submit" value="Regist"></td>
-				</tr>
-				
-		</table>
+	<form action="/OnlineShopping/ARegist" method="post">
+				<label for="fname">UserRegister</label><br />
+				<input type="text" name="username" id="fname" placeholder="please set up your username"><br />
+				<label for="lname">Password</label><br />
+				<input type="password" name="pwd" id="lname" placeholder="please set up your password"><br />
+				<label for="passwd">ConfirmPassword</label><br />
+				<input type="password" name="again_pwd" id="passwd" placeholder="please input your password again"><br />
+				<input type="submit" value="Regist">
 	</form>
 </body>
 </html>
