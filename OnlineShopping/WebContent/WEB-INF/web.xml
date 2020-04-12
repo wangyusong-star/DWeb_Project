@@ -9,6 +9,8 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+		<!-- 注册     -->
   <servlet>
   	<servlet-name>RegistServlet</servlet-name>
   	<servlet-class>demo.RegistServlet</servlet-class>
@@ -18,6 +20,7 @@
   	<url-pattern>/ARegist</url-pattern>
   </servlet-mapping>
   
+		<!-- 登录    -->
   <servlet>
   	<servlet-name>LoginServlet</servlet-name>
   	<servlet-class>demo.LoginServlet</servlet-class>
@@ -27,6 +30,7 @@
   	<url-pattern>/ALogin</url-pattern>
   </servlet-mapping>
   
+		<!-- 修改用户信息    -->
     <servlet>
   	<servlet-name>ChangeUserInfoServlet</servlet-name>
   	<servlet-class>demo.ChangeUserInfoServlet</servlet-class>
@@ -36,6 +40,7 @@
   	<url-pattern>/AChangeInfo</url-pattern>
   </servlet-mapping>
   
+		<!-- 展示商品信息   -->
   	<servlet>
 		<servlet-name>ShowGoodsViewServlet</servlet-name>
 		<servlet-class>demo.ShowGoodsViewServlet</servlet-class>
@@ -44,4 +49,22 @@
 		<servlet-name>ShowGoodsViewServlet</servlet-name>
 		<url-pattern>/ShowGoodsView</url-pattern>
 	</servlet-mapping>
+		<!-- Cookie上传    -->
+	<servlet>
+		<servlet-name>LoginCookiesServlet</servlet-name>
+		<servlet-class>demo.LoginCookies</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginCookiesServlet</servlet-name>
+		<url-pattern>/LoginCookie</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>CookieGetTestServlet</servlet-name>
+		<servlet-class>demo.CookieGetTest</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CookieGetTestServlet</servlet-name>
+		<url-pattern>/CookieGetTest</url-pattern>
+	</servlet-mapping>	
 </web-app>

@@ -3,6 +3,7 @@ package demo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,11 @@ public class RegistServlet extends HttpServlet {
 		name = req.getParameter("username");
 		pwd = req.getParameter("pwd");
 		againpwd = req.getParameter("again_pwd");
+		
+		
+		Cookie cookie = new Cookie(name,pwd);
+		cookie.setMaxAge(60*60*24);
+		resp.addCookie(cookie);
 		
 		if(!pwd.equals(againpwd)) {
 			pw.print("<html>"
@@ -45,8 +51,7 @@ public class RegistServlet extends HttpServlet {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				pw.print("Regist Success");
-				pw.flush();
+				resp.sendRedirect("login.jsp");
 			}
 
 	}
