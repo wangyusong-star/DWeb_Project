@@ -6,12 +6,4 @@
     <username>wangyusong</username>  
     <password>123</password> 
   </User>  
-  <User id="2"> 
-    <username>wys</username>  
-    <password>123</password> 
-  </User>  
-  <User id="3">
-    <username>wyswys</username>
-    <password>111</password>
-  </User>
 </UserInfo>

@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 					+ "</h1>" + "</body>" + "</html>");
 		}
 		if (flag == 1) {
-			resp.sendRedirect("index.html");
+			resp.sendRedirect("index.jsp?name="+name);
 		}
 	}
 

@@ -26,7 +26,7 @@ public class RegistServlet extends HttpServlet {
 		
 		Cookie cookie = new Cookie(name,pwd);
 		cookie.setMaxAge(60*60*24);
-		resp.addCookie(cookie);
+		resp.addCookie(cookie);	
 		
 		if(!pwd.equals(againpwd)) {
 			pw.print("<html>"
