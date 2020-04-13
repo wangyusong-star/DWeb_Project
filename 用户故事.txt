@@ -1,13 +1,13 @@
  用户故事：
-1.用户登录（客户或商家）As a user I want to ...(feture) so that ...(benefit)
-2.用户注册（客户或商家）
-3.用户修改个人信息（客户或商家）
-4.用户浏览商品信息（首页）
-5.用户搜索指定商品+5.1筛选条件
-6.用户个人中心查看已购商品记录
-7.用户将商品加收藏加购物车+7.1购买+7.2退货
-8.商家发布商品信息
-9.商家修改商品信息
-10.商家查看在售商品信息
-11.商家查看收益
-12.查看已销售清单库存
+1.用户登录（客户或商家）As a user I want to login so that I can enjoy shopping.
+2.用户注册（客户或商家）As a user I want to regist so that I can login.
+3.用户修改个人信息（客户或商家）As a user I want to update my information so that I change receive address.
+4.用户浏览商品信息（首页）As a customer I want to skip the goods so that I can select what I want to buy.
+5.用户搜索指定商品+5.1筛选条件 As a customer I want to search the goods so that I can find the specific goods(or in categorys).
+6.用户个人中心查看已购商品记录 As a customer I want to have my user room so that I can check buying record.
+7.用户将商品加收藏加购物车+7.1购买+7.2退货 As a customer I want to add goods into shoppingcar so that I can buy by list(or return goods).
+8.商家发布商品信息 As a businessman I want to release goods information so that I can sell goods.
+9.商家修改商品信息 As a businessman I want to change goods information so that I can update details.
+10.商家查看在售商品信息 As a businessman I want to skip goods in list so that I can check it.
+11.商家查看收益 As a businessman I want to skip benifits so that I can recognize my income.
+12.查看已销售清单库存 As a businessman I want to skip goods stock so that I can stock goods.
