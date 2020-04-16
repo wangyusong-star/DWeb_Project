@@ -19,7 +19,7 @@ public class UtilsForXML {
      * @throws Exception 
      */
     public static Document getDocument(String xmlPath) throws Exception {
-    	File file = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+    	File file = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
     	FileInputStream f =	new FileInputStream(file);
     	Reader reader = new InputStreamReader(f,"utf-8");
         SAXReader saxReader = new SAXReader();

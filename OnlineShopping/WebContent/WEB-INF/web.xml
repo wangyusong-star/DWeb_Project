@@ -49,22 +49,13 @@
 		<servlet-name>ShowGoodsViewServlet</servlet-name>
 		<url-pattern>/ShowGoodsView</url-pattern>
 	</servlet-mapping>
-		<!-- Cookie上传    -->
+		<!-- 修改商品信息    -->
 	<servlet>
-		<servlet-name>LoginCookiesServlet</servlet-name>
-		<servlet-class>demo.LoginCookies</servlet-class>
+		<servlet-name>ChangeGoodsInfoServlet</servlet-name>
+		<servlet-class>demo.ChangeGoodsInfoServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>LoginCookiesServlet</servlet-name>
-		<url-pattern>/LoginCookie</url-pattern>
+		<servlet-name>ChangeGoodsInfoServlet</servlet-name>
+		<url-pattern>/ChangeGoodsInfo</url-pattern>
 	</servlet-mapping>
-	
-	<servlet>
-		<servlet-name>CookieGetTestServlet</servlet-name>
-		<servlet-class>demo.CookieGetTest</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>CookieGetTestServlet</servlet-name>
-		<url-pattern>/CookieGetTest</url-pattern>
-	</servlet-mapping>	
 </web-app>

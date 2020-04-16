@@ -56,7 +56,7 @@ public class XMLOperateUser {
      * 根据User的属性id查询xml
      * */
     public static User QueryClinetLoginUserById(int id) throws Exception{
-        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();        
@@ -73,7 +73,7 @@ public class XMLOperateUser {
      * 增加xml数据
      * */
     public static int AddClinetLoginUser(String userName,String passWord) throws Exception{
-        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
         if (!dir.exists()) {
              dir.createNewFile();
         }
@@ -101,7 +101,7 @@ public class XMLOperateUser {
     
     public static int RegistUserNum() throws Exception{
     	int num = 0;
-    	File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+    	File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
         if (!dir.exists()) {
              dir.createNewFile();
         }
@@ -147,7 +147,7 @@ public class XMLOperateUser {
      * 根据User属性username修改xml数据
      * */
     public static void UpdateUserInfo(String username,String password) throws Exception {
-        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath); 
         Element root = dom.getRootElement();
@@ -161,7 +161,7 @@ public class XMLOperateUser {
      * 根据person属性id删除xml数据
      * */
     public static int DeleteClinetLoginUser(int id) throws Exception{
-        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+        File dir = new File("E:\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
         String dirPath = dir+"";        
         Document dom = UtilsForXML.getDocument(dirPath);        
         Element root = dom.getRootElement();
@@ -173,7 +173,7 @@ public class XMLOperateUser {
     
 	public static User findByUsername(String username){
 	    
-	    File file = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\Userinfo.xml");
+	    File file = new File("E:\\Web_Project\\DWeb_Project\\OnlineShopping\\WebContent\\xmldb\\Userinfo.xml");
 		SAXReader sax = new SAXReader();
 		//创建解析器		
 		try {

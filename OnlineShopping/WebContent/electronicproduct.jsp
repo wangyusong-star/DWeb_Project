@@ -30,8 +30,8 @@
 				<td><%=g.getGoodid() %></td>
 				<td><%=g.getGoodname() %></td>
 				<td><%=g.getPrice() %></td>
-				<td><%=g.getState() %></td>
 				<td><%=g.getStock() %></td>
+				<td><%=g.getState() %></td>
 				<td><%=g.getDescribe() %></td>
 				</tr>
 			<%
