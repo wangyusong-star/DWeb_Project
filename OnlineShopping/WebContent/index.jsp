@@ -10,7 +10,16 @@
 
 </head>
 <body>
-<%String username = request.getParameter("name"); %>
+<%
+String username = "";
+Cookie cookies[] = request.getCookies();
+if (cookies != null){
+	for(int i = 0; i < cookies.length; i++){
+	username = cookies[i].getName();
+}
+}
+
+%>
 <div class="fixedtop">
 <center>
 <ul>

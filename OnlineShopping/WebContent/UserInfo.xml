@@ -3,7 +3,11 @@
 
 <UserInfo> 
   <User id="1"> 
-    <username>wangyusong</username>  
+    <username>wys</username>  
     <password>123</password> 
   </User>  
+  <User id="2">
+    <username>wangyusong</username>
+    <password>123</password>
+  </User>
 </UserInfo>

@@ -32,9 +32,9 @@ public class LoginServlet extends HttpServlet {
 		name = req.getParameter("username");
 		pwd = req.getParameter("pwd");
 
-		Cookie[] cookies = req.getCookies();
+		//Cookie[] cookies = req.getCookies();
 
-		if (cookies != null) {
+		/*if (cookies != null) {
 			for (int i = 0; i < cookies.length; i++) {
 				if (cookies[i].getName().equals(name) && cookies[i].getValue().equals(pwd)) {
 					// 如果cookie与保存的相等，即找到cookie
@@ -42,11 +42,11 @@ public class LoginServlet extends HttpServlet {
 					break;
 				}
 			}
-		} else {
+		}*/ 
 			Cookie cookie = new Cookie(name, pwd);
-			cookie.setMaxAge(60 * 60 * 24);
+			cookie.setMaxAge(-1);
 			resp.addCookie(cookie);
-		}
+		
 		try {
 			num = XMLOperateUser.RegistUserNum();
 		} catch (Exception e1) {
@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet {
 					+ "</h1>" + "</body>" + "</html>");
 		}
 		if (flag == 1) {
-			resp.sendRedirect("index.jsp?name="+name);
+			resp.sendRedirect("index.jsp");
 		}
 	}
 
