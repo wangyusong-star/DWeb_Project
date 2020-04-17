@@ -58,4 +58,13 @@
 		<servlet-name>ChangeGoodsInfoServlet</servlet-name>
 		<url-pattern>/ChangeGoodsInfo</url-pattern>
 	</servlet-mapping>
+			<!-- 查询商品信息    -->
+	<servlet>
+		<servlet-name>SearchGoodsServlet</servlet-name>
+		<servlet-class>demo.SearchGoodsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchGoodsServlet</servlet-name>
+		<url-pattern>/SearchGoods</url-pattern>
+	</servlet-mapping>
 </web-app>

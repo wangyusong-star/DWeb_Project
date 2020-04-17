@@ -43,7 +43,7 @@ img {
 	border-style: none;
 	outline: none;
 }
-.search button i{
+.search form button i{
 	font-style: normal;
 }
 .search button:hover{

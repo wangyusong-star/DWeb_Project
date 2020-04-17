@@ -40,12 +40,12 @@ if (cookies != null){
 
 <h1 style="float:left">Shopping!</h1>
 
-
+<form  action="/OnlineShopping/SearchGoods" method="post">
 <div class="search">
-            <input type="text" placeholder="Search for..." name="" id="" value="" />
+            <input type="text" placeholder="Search for..." name="search"/>
             <button><i><b>Go</b></i></button>
 </div>
-
+</form>
 
 <div class="top">
 	<center> 

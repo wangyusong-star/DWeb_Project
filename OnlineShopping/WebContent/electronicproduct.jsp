@@ -24,7 +24,7 @@
 		</thead>
 		<tbody>
 			<%
-			List<Goods> list = (List)request.getAttribute("goods");
+			List<Goods> list = (List<Goods>)request.getAttribute("goods");
 				for(Goods g :list) {					
 			%><tr>
 				<td><%=g.getGoodid() %></td>

@@ -17,7 +17,7 @@
 		    <input type="password" id="lname" name="pwd" placeholder="please input your password"><br/>
 		    <input type="submit" value="login">
 		    <a href="#">forget password?</a>&ensp;&ensp;&ensp;
-		    <a href="register.jsp">register</a><br/>
+		    <a href="register.jsp">regist</a><br/>
   		</form>	
 </body>
 </html>
