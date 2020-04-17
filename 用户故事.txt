@@ -6,8 +6,10 @@
 5.用户搜索指定商品+5.1筛选条件 As a customer I want to search the goods so that I can find the specific goods(or in categorys).
 6.用户个人中心查看已购商品记录 As a customer I want to have my user room so that I can check buying record.
 7.用户将商品加收藏加购物车+7.1购买+7.2退货 As a customer I want to add goods into shoppingcar so that I can buy by list(or return goods).
-8.商家发布商品信息 As a businessman I want to release goods information so that I can sell goods.
-9.商家修改商品信息 As a businessman I want to change goods information so that I can update details.
-10.商家查看在售商品信息 As a businessman I want to skip goods in list so that I can check it.
-11.商家查看收益 As a businessman I want to skip benifits so that I can recognize my income.
-12.查看已销售清单库存 As a businessman I want to skip goods stock so that I can stock goods.
+8.登陆记录 As a customer I want the system can remember me so that I can save the login steps for a short time.
+9.分类 As a customer I want all the things can be classified so that I can find the things I want quickly.
+10.商家发布商品信息 As a businessman I want to release goods information so that I can sell goods.
+11.商家修改商品信息 As a businessman I want to change goods information so that I can update details.
+12.商家查看在售商品信息 As a businessman I want to skip goods in list so that I can check it.
+13.商家查看收益 As a businessman I want to skip benifits so that I can recognize my income.
+14.查看已销售清单库存 As a businessman I want to skip goods stock so that I can stock goods.
