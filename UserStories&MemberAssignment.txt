@@ -1,0 +1,28 @@
+ 用户故事：
+
+0107-WangYusong achieve:
+1.As a user I want to login so that I can enjoy shopping.
+2.As a user I want to login correct so that I want to know my password is wrong if I print wrong.
+3.As a user I want to keep my login state and see I have login so that I can have my own skip record.(cookies)
+4.As a customer I want to search the goods so that I can find the specific goods(or in categorys).
+5.As I user I want to have a better shopping experience so I can see page redirect correct.
+
+0105-LiuShucheng achieve:
+1.As a user I want to regist so that I can login.
+2.As a user I want to have my unique UID so when I regist a exist's username , web can tell me there already have.
+3.As a user I want to skip some electronic goods so that I can buy some.
+4.As a user I want to skip some books so that I can buy books.
+
+
+
+0110-ChengZhijie achieve:
+1.As a businessman I want to release goods information so that I can sell goods.
+2.As a businessman I want to change goods state so that I can stock it.
+3.As a businessman I want to change goods price so that I can update it.
+
+
+
+0111-ShuZilong achieve:
+1.As a businessman I want to skip goods in list so that I can check it.
+2.As a businessman I want to skip goods stock so that I can stock goods.
+3.As a customer I want to skip the goods so that I can select what I want to buy.
