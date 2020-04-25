@@ -2,7 +2,7 @@ package daodb;
 
 import java.sql.ResultSet;
 
-public class CustomerMethods {
+public class BusinessMethods {
 
 	String sql;
 	ResultSet rs;
@@ -10,7 +10,7 @@ public class CustomerMethods {
 	public int tableNum() {
 		Database db = new Database();
 		int row = 0;
-		sql = "select customer_id,customer_name,customer_password,customer_money from customer_info order by customer_id";
+		sql = "select business_id,business_name,business_password,business_money from business_info order by business_id";
 		try {
 			db.OpenConn();
 			rs = db.QueryInfo(sql);
@@ -25,17 +25,15 @@ public class CustomerMethods {
 		return row;
 	}
 	
-	public boolean addInfo(String customer_name,String customer_password) {
-		int id_num = 0;
+	public boolean addInfo(String business_name,String business_password) {
 		
 		Database db = new Database();
-		if(customer_name == null || customer_password == "") {
+		if(business_name == "" || business_password == "") {
 			return false;
 		}
 		
-		id_num = tableNum() + 1;
-		
-		sql = "insert into customer_info(customer_id,customer_name,customer_password) values('"+id_num+"','"+customer_name+"','"+customer_password+"')";
+		int id_num = tableNum() + 1;
+		sql = "insert into business_info(business_id,business_name,business_password) values('"+id_num+"','"+business_name+"','"+business_password+"')";
 		
 		try {
 			db.OpenConn();
@@ -50,14 +48,14 @@ public class CustomerMethods {
 		}
 	}
 	
-	public boolean UpdatePassword(String customer_password){       //ÐÞ¸ÄÃÜÂë
+	public boolean UpdatePassword(String business_password){       //ÐÞ¸ÄÃÜÂë
 		Database db = new Database();
 		
-		if(customer_password == null || customer_password == "") {
+		if(business_password == null || business_password == "") {
 			return false;
 		}
 		
-		sql = "update customer_info set customer_password='"+customer_password+"'";
+		sql = "update business_info set business_password='"+business_password+"'";
 		
 		try {
 			db.OpenConn();
@@ -74,14 +72,14 @@ public class CustomerMethods {
 		
 	}
 		
-	public boolean UpdateMoney(String customer_money){       //ÐÞ¸ÄÇ®
+	public boolean UpdateMoney(String business_money){       //ÐÞ¸ÄÇ®
 		Database db = new Database();
 		
-		if(customer_money == null || customer_money == "") {
+		if(business_money == null || business_money == "") {
 			return false;
 		}
 		
-		sql = "update customer_info set customer_money='"+customer_money+"'";
+		sql = "update business_info set business_money='"+business_money+"'";
 		
 		try {
 			db.OpenConn();
@@ -121,7 +119,7 @@ public class CustomerMethods {
 		String[][] sn = null;
 		int row = 0;
 		int i = 0;
-		sql = "select customer_id,customer_name,customer_password,customer_money from customer_info order by customer_id";
+		sql = "select business_id,business_name,business_password,business_money from business_info order by business_id";
 		try {
 			db.OpenConn();
 			rs = db.QueryInfo(sql);
@@ -142,10 +140,10 @@ public class CustomerMethods {
 				rs.first();
 				rs.previous();
 				while(rs.next()) {
-					sn[i][0] = rs.getString("customer_id");
-					sn[i][1] = rs.getString("customer_name");
-					sn[i][2] = rs.getString("customer_password");
-					sn[i][3] = rs.getString("customer_money");
+					sn[i][0] = rs.getString("business_id");
+					sn[i][1] = rs.getString("business_name");
+					sn[i][2] = rs.getString("business_password");
+					sn[i][3] = rs.getString("business_money");
 					i++;
 				}
 				rs.close();
