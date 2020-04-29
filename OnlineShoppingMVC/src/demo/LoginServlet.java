@@ -9,7 +9,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import daodb.BusinessMethods;
 import daodb.CustomerMethods;
+import javabean.Businessman;
 import javabean.Customer;
 
 /**
@@ -24,13 +27,15 @@ public class LoginServlet extends HttpServlet {
 		PrintWriter pw = resp.getWriter();
 		String name;
 		String pwd;
-
-		int num = 0;
-		int flag = 0;
+		String choosecus;
+		String choosebus;
+		int flag = 10;
 
 		name = req.getParameter("username");
 		pwd = req.getParameter("pwd");
-
+		choosecus = req.getParameter("customer");
+		choosebus = req.getParameter("businessman");
+		
 		//Cookie[] cookies = req.getCookies();
 
 		/*if (cookies != null) {
@@ -42,37 +47,78 @@ public class LoginServlet extends HttpServlet {
 				}
 			}
 		}*/ 
-			Cookie cookie = new Cookie(name, pwd);
-			cookie.setMaxAge(-1);
-			resp.addCookie(cookie);
+		
+
+		Cookie cookie = new Cookie(name, pwd);
+		cookie.setMaxAge(-1);
+		resp.addCookie(cookie);
+			
+		if(choosecus != null && choosebus == null) {	//用户
 			CustomerMethods c = new CustomerMethods();
-		try {
-			num = c.tableNum();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			Customer cus = new Customer();
+			
+			boolean result = c.nameRepeat(name);
+			if(result == false) {//如果用户不存在
+				flag = 2;
+			}else {
+				cus = c.searchAll(name);
+				if(cus.getCustomer_password().equalsIgnoreCase(pwd)) { //检查密码
+					flag = 1;
+				}else {
+					flag = 0;
+				}
+			}			
 		}
-		Customer cus = new Customer();
-		for (int i = 1; i < num; i++) {
-			try {
-				user = XMLOperateUser.QueryClinetLoginUserById(i);
-			} catch (Exception e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			if (user.getUsername().equals(name) && user.getPassword().equals(pwd)) {
-				flag = 1;
-				break;
-			}
+		
+		if(choosebus != null && choosecus == null) {	//商家
+			BusinessMethods b = new BusinessMethods();
+			Businessman bus = new Businessman();
+			
+			boolean result2 = b.nameRepeat(name);
+			if(result2 == false) {//如果用户不存在
+				flag = 2;
+			}else {
+				bus = b.searchAll(name);
+				if(bus.getBusiness_password().equalsIgnoreCase(pwd)) { //检查密码
+					flag = 1;
+				}else {
+					flag = 0;
+				}
+			}			
 		}
+		
+		if(choosebus != null && choosecus != null) {//勾了两个，报错
+			flag = 3;
+		}
+		if(choosebus == null && choosecus == null) {//两个没勾，报错
+			flag = 4;
+		}
+			
 		if (flag == 0) {
 			pw.print("<html>" + "<head>" + "<title>LoginFailed</title>" + "</head>" + "<body>" + "<h1>"
 					+ "<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">Username or Passsword is wrong!</a>"
 					+ "</h1>" + "</body>" + "</html>");
 		}
-		if (flag == 1) {
-			resp.sendRedirect("index.jsp");
+		if (flag == 2) {
+			pw.print("<html>" + "<head>" + "<title>LoginFailed</title>" + "</head>" + "<body>" + "<h1>"
+					+ "<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">User not exist!</a>"
+					+ "</h1>" + "</body>" + "</html>");
 		}
+		if (flag == 3) {
+			pw.print("<html>" + "<head>" + "<title>LoginFailed</title>" + "</head>" + "<body>" + "<h1>"
+					+ "<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">You can't choose two character!</a>"
+					+ "</h1>" + "</body>" + "</html>");
+		}
+		if (flag == 4) {
+			pw.print("<html>" + "<head>" + "<title>LoginFailed</title>" + "</head>" + "<body>" + "<h1>"
+					+ "<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">Please choose one character!</a>"
+					+ "</h1>" + "</body>" + "</html>");
+		}
+		
+		if (flag == 1) {
+			resp.sendRedirect("index.jsp");//成功
+		}
+		
 	}
 
 }

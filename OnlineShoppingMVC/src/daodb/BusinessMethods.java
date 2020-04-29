@@ -30,20 +30,10 @@ public class BusinessMethods {
 	//判断用户名是否重复
 	public boolean nameRepeat(String business_name) {
 		Businessman business = new Businessman();
-		
 		business = searchAll(business_name);
-		int flag = 0;		
-		int num = tableNum();
-		for(int j = 0; j <= num; j ++) {
-			if(business.getBusiness_name() != "") {
-				flag = 1;
-			}else {
-				flag = 0;
-			}			
-		}		
-		if(flag == 1) {
-			return true;//exist
-		}else {
+		if(business.getBusiness_name().equalsIgnoreCase(business_name)) {
+			return true;
+		}else{
 			return false;
 		}
 	}
@@ -188,7 +178,7 @@ public class BusinessMethods {
 			}
 			
 			for(int j = 0;j < row;j ++) {
-				if(sn[j][1] == business_name) {
+				if(sn[j][1].equalsIgnoreCase(business_name)) {
 					businessman.setBusiness_id(sn[j][0]);
 					businessman.setBusiness_name(sn[j][1]);
 					businessman.setBusiness_password(sn[j][2]);

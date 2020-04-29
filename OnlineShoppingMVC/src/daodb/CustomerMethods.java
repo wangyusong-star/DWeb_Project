@@ -26,26 +26,15 @@ public class CustomerMethods {
 		return row;
 	}
 	
-	//判断用户名是否重复
+	//判断用户名是否重复,返回true存在
 	public boolean nameRepeat(String customer_name) {
 		Customer customer = new Customer();
-		
 		customer = searchAll(customer_name);
-		int flag = 0;		
-		int num = tableNum();
-		for(int j = 0; j <= num; j ++) {
-			if(customer.getCustomer_name() != "") {
-				flag = 1;
-			}else {
-				flag = 0;
-			}			
-		}		
-		if(flag == 1) {
-			return true;//exist
-		}else {
+		if(customer.getCustomer_name().equalsIgnoreCase(customer_name)) {
+			return true;
+		}else{
 			return false;
 		}
-		
 	}
 	
 	//加
@@ -173,7 +162,7 @@ public class CustomerMethods {
 			}
 			
 			for(int j = 0;j < row;j ++) {
-				if(sn[j][1] == customer_name) {
+				if(sn[j][1].equalsIgnoreCase(customer_name)) {
 					customer.setCustomer_id(sn[j][0]);
 					customer.setCustomer_name(sn[j][1]);
 					customer.setCustomer_password(sn[j][2]);

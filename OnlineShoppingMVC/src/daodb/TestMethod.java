@@ -1,5 +1,7 @@
 package daodb;
 
+import javabean.Customer;
+
 public class TestMethod {
 	public static void main(String[] args) {
 		/*
@@ -22,7 +24,12 @@ public class TestMethod {
 			用户修改密码depend用户名：结果有效
 		CustomerMethods c = new CustomerMethods();
 		c.UpdatePassword("xlf","222");
+		
+		CustomerMethods c = new CustomerMethods();
+		Customer cus = c.searchAll("wangyusong");
+		System.out.println(cus.getCustomer_name());
+		
+		
 		*/
-		}
-
+	}
 }

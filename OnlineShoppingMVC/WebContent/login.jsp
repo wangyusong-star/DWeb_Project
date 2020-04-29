@@ -10,7 +10,7 @@
 <body>
 	<font style="font-size:40px">welcome to our </font><br/>
 	&ensp;&ensp;&ensp;&ensp;<font style="font-size:80px">ONLINE SHOPPING~</font>
-		 <form  action="/OnlineShopping/ALogin" method="post">
+		 <form  action="/OnlineShoppingMVC/ALogin" method="post">
 		    <label for="fname">User</label><br/>
 		    <input type="text" id="fname" name="username" placeholder="please input your username"><br/>		
 		    <label for="lname">Password</label><br/>
