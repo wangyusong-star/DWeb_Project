@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>OnlineShopping</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+		<!-- 注册     -->
+  <servlet>
+  	<servlet-name>RegistServlet</servlet-name>
+  	<servlet-class>demo.RegistServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegistServlet</servlet-name>
+  	<url-pattern>/ARegist</url-pattern>
+  </servlet-mapping>
+  
+		<!-- 登录    -->
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>demo.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/ALogin</url-pattern>
+  </servlet-mapping>
+  
+		<!-- 修改用户信息    -->
+    <servlet>
+  	<servlet-name>ChangeUserInfoServlet</servlet-name>
+  	<servlet-class>demo.ChangeUserInfoServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ChangeUserInfoServlet</servlet-name>
+  	<url-pattern>/AChangeInfo</url-pattern>
+  </servlet-mapping>
+  
+		<!-- 展示商品信息   -->
+  	<servlet>
+		<servlet-name>ShowGoodsViewServlet</servlet-name>
+		<servlet-class>demo.ShowGoodsViewServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ShowGoodsViewServlet</servlet-name>
+		<url-pattern>/ShowGoodsView</url-pattern>
+	</servlet-mapping>
+		<!-- 修改商品信息    -->
+	<servlet>
+		<servlet-name>ChangeGoodsInfoServlet</servlet-name>
+		<servlet-class>demo.ChangeGoodsInfoServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ChangeGoodsInfoServlet</servlet-name>
+		<url-pattern>/ChangeGoodsInfo</url-pattern>
+	</servlet-mapping>
+			<!-- 查询商品信息    -->
+	<servlet>
+		<servlet-name>SearchGoodsServlet</servlet-name>
+		<servlet-class>demo.SearchGoodsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchGoodsServlet</servlet-name>
+		<url-pattern>/SearchGoods</url-pattern>
+	</servlet-mapping>
+</web-app>
