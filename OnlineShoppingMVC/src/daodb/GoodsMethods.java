@@ -132,8 +132,8 @@ public class GoodsMethods {
 			return false;
 		}
 
-		sql = "update goods_info set goods_name='" + goods_name + "' goods_price='" + goods_price + "' goods_stock='"
-				+ goods_stock + "' " + "goods_state='" + goods_state + "' goods_describe='" + goods_describe
+		sql = "update goods_info set goods_name='" + goods_name + "',goods_price='" + goods_price + "',goods_stock='"
+				+ goods_stock + "' " + ",goods_state='" + goods_state + "',goods_describe='" + goods_describe
 				+ "'where goods_name='" + goods_name + "'";
 
 		try {
@@ -175,10 +175,10 @@ public class GoodsMethods {
 			return false;//输入重复商品名
 		}
 		
-		int id_num = tableNum() + 1;
+		String id_num = Integer.toString(tableNum() + 1);
 
-		sql = "insert into goods_info(goods_id,goods_name,goods_price,goods_stock,goods_state,goods_describe,goods_offer) values('"
-				+ id_num + "','" + goods_name + "','" + goods_price + "','" + goods_stock + "','" + goods_describe
+		sql = "insert into goods_info(goods_id,goods_name,goods_price,goods_stock,goods_state,goods_describe,goods_offer) "
+				+ "values('"+id_num + "','" + goods_name + "','" + goods_price + "','" + goods_stock + "','" + goods_state + "','" + goods_describe
 				+ "','" + goods_offer + "')";
 
 		try {
@@ -195,24 +195,26 @@ public class GoodsMethods {
 		}
 	}
 
-	public boolean Buy(String goods_name, String goods_price, String goods_num, String goods_offer,
-			String goods_buyer) {
+	public boolean Buy(String goods_name,String goods_num, String goods_offer,String goods_buyer) {
 		int flag = 0;
 		String customer_newmoney = null;
 		// 查询用户余额够不够
 		CustomerMethods c = new CustomerMethods();
 		Customer cus = c.searchAll(goods_buyer);
-		int customer_money = Integer.parseInt(cus.getCustomer_money());
-		// 商品数量够不够
 		Goods good = SearchGoodsInfo(goods_name);
-		int goods_stock = Integer.parseInt(good.getGoods_stock()) - 1;// 库存查询先减一
-		String goods_newstock = Integer.toString(goods_stock);// 匹配方法转型字符串
-		int good_price = Integer.parseInt(good.getGoods_price());
+		String getmoney = cus.getCustomer_money();
+		String getstock = good.getGoods_stock();
+		String getprice = good.getGoods_price();
 		String goods_state = good.getGoods_state();
 		String goods_describe = good.getGoods_describe();
+		int customer_money = Integer.parseInt(getmoney);
+		// 商品数量够不够		
+		int goods_stock = Integer.parseInt(getstock) - 1;// 库存查询先减一
+		String goods_newstock = Integer.toString(goods_stock);// 匹配方法转型字符串
+		int goods_price = Integer.parseInt(getprice);
 		// compare money
-		if (customer_money >= good_price) {
-			customer_money = customer_money - good_price;
+		if (customer_money >= goods_price) {
+			customer_money = customer_money - goods_price;
 			customer_newmoney = Integer.toString(customer_money);
 			flag = 1;
 		}
@@ -222,7 +224,7 @@ public class GoodsMethods {
 			if (goods_name == "" || goods_buyer == "") {
 				return false;
 			}
-			int id_num = RecordtableNum() + 1;
+			String id_num = Integer.toString(RecordtableNum() + 1);
 			sql = "insert into shopping_record(record_id,goods_name,goods_price,goods_num,goods_offer,goods_buyer) values('"
 					+ id_num + "','" + goods_name + "','" + goods_price + "','" + goods_num + "','" + goods_offer
 					+ "','" + goods_buyer + "')";
@@ -235,7 +237,7 @@ public class GoodsMethods {
 				db.closeStmt();
 			}
 			// goods_info-1
-			UpdateGoods(goods_name, goods_price, goods_newstock, goods_state, goods_describe);
+			UpdateGoods(goods_name, good.getGoods_price(), goods_newstock, goods_state, goods_describe);
 			// customer_money-1
 			CustomerMethods customer = new CustomerMethods();
 			customer.UpdateMoney(goods_buyer, customer_newmoney);
@@ -248,7 +250,7 @@ public class GoodsMethods {
 		String profit = null;
 		int row = 0;
 		Database db = new Database();
-		sql = "select (sum)goods_price from shopping_record where goods_offer = '" + businessman_name + "'";
+		sql = "select sum(goods_price) from shopping_record where goods_offer = '" + businessman_name + "'";
 		try {
 			db.OpenConn();
 			rs = db.QueryInfo(sql);
@@ -259,14 +261,13 @@ public class GoodsMethods {
 				rs.first();
 				rs.previous();
 				if(rs.next()) {
-					profit = rs.getString("(sum)goods_price");			
+					profit = rs.getString("sum(goods_price)");			
 				}
 				rs.close();
 			}else {
 				rs.close();
 			}
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}finally{
 				db.closeStmt();
