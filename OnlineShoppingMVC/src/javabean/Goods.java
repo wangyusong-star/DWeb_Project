@@ -7,6 +7,7 @@ public class Goods {
 	private String goods_stock;
 	private String goods_state;
 	private String goods_describe;
+	private String goods_offer;
 	public String getGoods_id() {
 		return goods_id;
 	}
@@ -43,5 +44,12 @@ public class Goods {
 	public void setGoods_describe(String goods_describe) {
 		this.goods_describe = goods_describe;
 	}
+	public String getGoods_offer() {
+		return goods_offer;
+	}
+	public void setGoods_offer(String goods_offer) {
+		this.goods_offer = goods_offer;
+	}
+	
 	
 }

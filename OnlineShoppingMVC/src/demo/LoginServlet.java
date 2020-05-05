@@ -4,21 +4,15 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import daodb.BusinessMethods;
 import daodb.CustomerMethods;
 import javabean.Businessman;
 import javabean.Customer;
 
-/**
- * Servlet implementation class LoginServlet
- */
-@WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -29,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 		String pwd;
 		String choosecus;
 		String choosebus;
-		int flag = 10;
+		int flag = 0;
 
 		name = req.getParameter("username");
 		pwd = req.getParameter("pwd");
@@ -63,9 +57,9 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				cus = c.searchAll(name);
 				if(cus.getCustomer_password().equalsIgnoreCase(pwd)) { //检查密码
-					flag = 1;
-				}else {
 					flag = 0;
+				}else {
+					flag = 1;
 				}
 			}			
 		}
@@ -80,9 +74,9 @@ public class LoginServlet extends HttpServlet {
 			}else {
 				bus = b.searchAll(name);
 				if(bus.getBusiness_password().equalsIgnoreCase(pwd)) { //检查密码
-					flag = 1;
-				}else {
 					flag = 0;
+				}else {
+					flag = 1;
 				}
 			}			
 		}
@@ -94,7 +88,7 @@ public class LoginServlet extends HttpServlet {
 			flag = 4;
 		}
 			
-		if (flag == 0) {
+		if (flag == 1) {
 			pw.print("<html>" + "<head>" + "<title>LoginFailed</title>" + "</head>" + "<body>" + "<h1>"
 					+ "<a herf=\"javascript:;\" onClick=\"javascript:history.back(-1);\">Username or Passsword is wrong!</a>"
 					+ "</h1>" + "</body>" + "</html>");
@@ -115,7 +109,7 @@ public class LoginServlet extends HttpServlet {
 					+ "</h1>" + "</body>" + "</html>");
 		}
 		
-		if (flag == 1) {
+		if (flag == 0) {
 			resp.sendRedirect("index.jsp");//成功
 		}
 		

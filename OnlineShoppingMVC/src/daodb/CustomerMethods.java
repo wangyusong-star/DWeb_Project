@@ -139,12 +139,11 @@ public class CustomerMethods {
 				row = rs.getRow();
 			}
 			if(row == 0) {
-				sn = new String[1][5];
+				sn = new String[1][4];
 				sn[0][0] = "	";
 				sn[0][1] = "	";
 				sn[0][2] = "	";
 				sn[0][3] = "	";
-				sn[0][4] = "	";
 				rs.close();
 			}
 			else {

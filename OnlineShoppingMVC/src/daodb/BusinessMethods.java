@@ -8,7 +8,7 @@ public class BusinessMethods {
 
 	String sql;
 	ResultSet rs;
-	
+
 	public int tableNum() {
 		Database db = new Database();
 		int row = 0;
@@ -26,7 +26,7 @@ public class BusinessMethods {
 		}
 		return row;
 	}
-	
+
 	//判断用户名是否重复
 	public boolean nameRepeat(String business_name) {
 		Businessman business = new Businessman();
@@ -37,9 +37,9 @@ public class BusinessMethods {
 			return false;
 		}
 	}
-	
+
 	public boolean addInfo(String business_name,String business_password) {
-		
+
 		Database db = new Database();
 		if(business_name == "" || business_password == "") {
 			return false;
@@ -47,16 +47,16 @@ public class BusinessMethods {
 		if(nameRepeat(business_name)) {
 			return false;
 		}
-		
+
 		int id_num = tableNum() + 1;
-		
+
 		sql = "insert into business_info(business_id,business_name,business_password) values('"+id_num+"','"+business_name+"','"+business_password+"')";
-		
+
 		try {
 			db.OpenConn();
 			db.UpdateInfo(sql);
 			db.closeStmt();
-			
+
 			return true;
 		}catch(Exception ex){
 			System.out.println(ex);
@@ -65,20 +65,20 @@ public class BusinessMethods {
 			return false;
 		}
 	}
-	
+
 	public boolean UpdatePassword(String business_name,String business_password){       //修改密码
 		Database db = new Database();
-		
+
 		if(business_name == "" || business_password == "") {
 			return false;
 		}
 		if(nameRepeat(business_name)) {
 			return false;
 		}
-		
-		
+
+
 		sql = "update business_info set business_password='"+business_password+"' where business_name='"+business_name+"'";
-		
+
 		try {
 			db.OpenConn();
 			db.UpdateInfo(sql);  //更新信息
@@ -91,12 +91,12 @@ public class BusinessMethods {
 
 			return false;
 		}
-		
+
 	}
-		
+
 	public boolean UpdateMoney(String business_name,String business_money){       //修改钱
 		Database db = new Database();
-		
+
 		if(business_money == null || business_money == "") {
 			return false;
 		}
@@ -104,7 +104,7 @@ public class BusinessMethods {
 			return false;
 		}
 		sql = "update business_info set business_money='"+business_money+"' where business_name='"+business_name+"'";
-		
+
 		try {
 			db.OpenConn();
 			db.UpdateInfo(sql);  //更新信息
@@ -117,7 +117,7 @@ public class BusinessMethods {
 
 			return false;
 		}
-		
+
 	}
 	/*
 	public boolean deleteInfo(String userid) {
@@ -145,9 +145,9 @@ public class BusinessMethods {
 		int row = 0;
 		int i = 0;
 		int flag = 0;
-		
+
 		sql = "select business_id,business_name,business_password,business_money from business_info order by business_id";
-		
+
 		try {
 			db.OpenConn();
 			rs = db.QueryInfo(sql);
@@ -176,7 +176,7 @@ public class BusinessMethods {
 				}
 				rs.close();
 			}
-			
+
 			for(int j = 0;j < row;j ++) {
 				if(sn[j][1].equalsIgnoreCase(business_name)) {
 					businessman.setBusiness_id(sn[j][0]);
@@ -192,7 +192,7 @@ public class BusinessMethods {
 				businessman.setBusiness_password("");
 				businessman.setBusiness_money("");
 			}
-			
+
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally{
