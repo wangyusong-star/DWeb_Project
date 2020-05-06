@@ -1,7 +1,11 @@
 package daodb;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javabean.Customer;
 import javabean.Goods;
+import javabean.ShoppingRecord;
 
 public class TestMethod {
 	public static void main(String[] args) {
@@ -30,17 +34,6 @@ public class TestMethod {
 		Customer cus = c.searchAll("wangyusong");
 		System.out.println(cus.getCustomer_name());
 		*/
-		int a;
-		String s;
-		boolean x;
-		Goods good = new Goods();
-		GoodsMethods g = new GoodsMethods();
-		Customer cus = new Customer();
-		CustomerMethods c = new CustomerMethods();
-		s = g.Profit("wys");
-		//cus = c.searchAll("wangyusong");
-		//good = g.SearchGoodsInfo("macbookair3");
-		//int y = Integer.parseInt(good.getGoods_price());
-		System.out.println(s);
+		
 	}
 }

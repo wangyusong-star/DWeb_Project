@@ -25,22 +25,17 @@ if (cookies != null){
 <ul>
 		<li><a style="margin-right:200px"><b>Welcome!  <%=username %></b></a></li>
         <li><a style="float:left" href="register.jsp"><b>Regist</b></a></li>		
-		<li><a style="float:left" href="login.jsp"><b>Login</b></a></li>
-                
-		<li><a href="#"><b>My Shopping</b></a>
-        <ul>
-        <li><a href="#"><b>stuff I've brought</b></a></li>
-        <li><a href="#"><b>stuff I've sold out</b></a></li>
-        </ul>
+		<li><a style="float:left" href="login.jsp"><b>Login</b></a></li>           
         </li>
-       
+        <li><a style="float:right" href="addcustomermoney.jsp"><b>customer_center</b></a></li>
+        <li><a style="float:right" href="businesscenter.jsp"><b>business_center</b></a></li>
 </ul>
 </center>
 </div>
 
 <h1 style="float:left">Shopping!</h1>
 
-<form  action="/OnlineShopping/SearchGoods" method="post">
+<form  action="/OnlineShoppingMVC/SearchGoods" method="post">
 <div class="search">
             <input type="text" placeholder="Search for..." name="search"/>
             <button><i><b>Go</b></i></button>

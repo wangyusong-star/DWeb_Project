@@ -8,7 +8,7 @@
 <title>register</title>
 </head>
 <body>
-	<form action="/OnlineShopping/ARegist" method="post">
+	<form action="/OnlineShoppingMVC/ARegist" method="post">
 				<label for="fname">UserRegister</label><br />
 				<input type="text" name="username" id="fname" placeholder="please set up your username"><br />
 				<label for="lname">Password</label><br />

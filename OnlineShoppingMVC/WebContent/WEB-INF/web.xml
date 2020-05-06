@@ -67,4 +67,13 @@
 		<servlet-name>SearchGoodsServlet</servlet-name>
 		<url-pattern>/SearchGoods</url-pattern>
 	</servlet-mapping>
+			<!-- 客户加钱    -->
+	<servlet>
+		<servlet-name>AddCustomerMoneyServlet</servlet-name>
+		<servlet-class>demo.AddCustomerMoneyServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddCustomerMoneyServlet</servlet-name>
+		<url-pattern>/AddMoney</url-pattern>
+	</servlet-mapping>
 </web-app>

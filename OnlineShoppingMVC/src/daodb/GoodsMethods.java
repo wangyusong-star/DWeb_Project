@@ -49,79 +49,34 @@ public class GoodsMethods {
 		return row;
 	}
 	
-	public Goods SearchGoodsInfo(String goods_name) {// 搜索功能 用户方法
+	public int SCtableNum() {// 购car表行数
 		Database db = new Database();
-		Goods good = new Goods();
-		String[][] sn = null;
 		int row = 0;
-		int i = 0;
-		int flag = 0;
-
-		sql = "select goods_id,goods_name,goods_price,goods_stock,goods_state,goods_describe,goods_offer "
-				+ "from goods_info where goods_name = '"+goods_name+"'";
-
+		sql = "select shoppingcar_id from shopping_car order by shoppingcar_id";
 		try {
 			db.OpenConn();
 			rs = db.QueryInfo(sql);
 			if (rs.last()) {
 				row = rs.getRow();
 			}
-			if (row == 0) {
-				sn = new String[1][7];
-				sn[0][0] = "	";
-				sn[0][1] = "	";
-				sn[0][2] = "	";
-				sn[0][3] = "	";
-				sn[0][4] = "	";
-				sn[0][5] = "	";
-				sn[0][6] = "	";
-				rs.close();
-			} else {
-				sn = new String[row][7];
-				rs.first();
-				rs.previous();
-				while (rs.next()) {
-					sn[i][0] = rs.getString("goods_id");
-					sn[i][1] = rs.getString("goods_name");
-					sn[i][2] = rs.getString("goods_price");
-					sn[i][3] = rs.getString("goods_stock");
-					sn[i][4] = rs.getString("goods_state");
-					sn[i][5] = rs.getString("goods_describe");
-					sn[i][6] = rs.getString("goods_offer");
-					i++;
-				}
-				rs.close();
-			}
-
-			for (int j = 0; j < row; j++) {
-				if (sn[j][1].equalsIgnoreCase(goods_name)) {
-					good.setGoods_id(sn[j][0]);
-					good.setGoods_name(sn[j][1]);
-					good.setGoods_price(sn[j][2]);
-					good.setGoods_stock(sn[j][3]);
-					good.setGoods_state(sn[j][4]);
-					good.setGoods_describe(sn[j][5]);
-					good.setGoods_offer(sn[j][6]);
-					flag = 1;
-				}
-			}
-			if (flag == 0) {
-				good.setGoods_id("");
-				good.setGoods_name("");
-				good.setGoods_price("");
-				good.setGoods_stock("");
-				good.setGoods_state("");
-				good.setGoods_describe("");
-				good.setGoods_offer("");
-			}
-
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		} finally {
 			db.closeStmt();
 		}
-		return good;
+		return row;
 	}
+	
+	public boolean nameRepeat(String goods_name) {//判断商品是否有重复
+		Goods good = new Goods();
+		good = SearchGoodsInfo(goods_name);
+		if(good.getGoods_name().equalsIgnoreCase(goods_name)) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 
 	// 修改货物信息 商家方法
 	public boolean UpdateGoods(String goods_name, String goods_price, String goods_stock, String goods_state,
@@ -149,16 +104,6 @@ public class GoodsMethods {
 			return false;
 		}
 
-	}
-
-	public boolean nameRepeat(String goods_name) {
-		Goods good = new Goods();
-		good = SearchGoodsInfo(goods_name);
-		if(good.getGoods_name().equalsIgnoreCase(goods_name)) {
-			return true;
-		}else{
-			return false;
-		}
 	}
 	
 	// 加信息到总表
@@ -194,8 +139,34 @@ public class GoodsMethods {
 			return false;
 		}
 	}
+	
+	public boolean addtoShoppingCar(String customer_name,String goods_name, String goods_num) {
+		//加购物车
+				Database db = new Database();
+				if (customer_name == "" || goods_name == "" || goods_num == "") {
+					return false;
+				}
+				Goods good = SearchGoodsInfo(goods_name);
+				String id_num = Integer.toString(SCtableNum() + 1);
+				
+				sql = "insert into shopping_car(shoppingcar_id,customer_name,goods_name,goods_num,goods_price) "
+						+ "values('"+id_num + "','"+customer_name + "','" + goods_name + "','" + goods_num + "','" + good.getGoods_price() + "')";
 
-	public boolean Buy(String goods_name,String goods_num, String goods_offer,String goods_buyer) {
+				try {
+					db.OpenConn();
+					db.UpdateInfo(sql);
+					db.closeStmt();
+
+					return true;
+				} catch (Exception ex) {
+					System.out.println(ex);
+					db.closeStmt();
+
+					return false;
+				}
+			}
+
+	public boolean Buy(String goods_name,String goods_num, String goods_offer,String goods_buyer) {//购买
 		int flag = 0;
 		String customer_newmoney = null;
 		// 查询用户余额够不够
@@ -275,6 +246,80 @@ public class GoodsMethods {
 		return profit;
 	}
 	
+	public Goods SearchGoodsInfo(String goods_name) {// 搜索功能 用户方法
+		Database db = new Database();
+		Goods good = new Goods();
+		String[][] sn = null;
+		int row = 0;
+		int i = 0;
+		int flag = 0;
+
+		sql = "select goods_id,goods_name,goods_price,goods_stock,goods_state,goods_describe,goods_offer "
+				+ "from goods_info where goods_name = '"+goods_name+"'";
+
+		try {
+			db.OpenConn();
+			rs = db.QueryInfo(sql);
+			if (rs.last()) {
+				row = rs.getRow();
+			}
+			if (row == 0) {
+				sn = new String[1][7];
+				sn[0][0] = "	";
+				sn[0][1] = "	";
+				sn[0][2] = "	";
+				sn[0][3] = "	";
+				sn[0][4] = "	";
+				sn[0][5] = "	";
+				sn[0][6] = "	";
+				rs.close();
+			} else {
+				sn = new String[row][7];
+				rs.first();
+				rs.previous();
+				while (rs.next()) {
+					sn[i][0] = rs.getString("goods_id");
+					sn[i][1] = rs.getString("goods_name");
+					sn[i][2] = rs.getString("goods_price");
+					sn[i][3] = rs.getString("goods_stock");
+					sn[i][4] = rs.getString("goods_state");
+					sn[i][5] = rs.getString("goods_describe");
+					sn[i][6] = rs.getString("goods_offer");
+					i++;
+				}
+				rs.close();
+			}
+
+			for (int j = 0; j < row; j++) {
+				if (sn[j][1].equalsIgnoreCase(goods_name)) {
+					good.setGoods_id(sn[j][0]);
+					good.setGoods_name(sn[j][1]);
+					good.setGoods_price(sn[j][2]);
+					good.setGoods_stock(sn[j][3]);
+					good.setGoods_state(sn[j][4]);
+					good.setGoods_describe(sn[j][5]);
+					good.setGoods_offer(sn[j][6]);
+					flag = 1;
+				}
+			}
+			if (flag == 0) {
+				good.setGoods_id("");
+				good.setGoods_name("");
+				good.setGoods_price("");
+				good.setGoods_stock("");
+				good.setGoods_state("");
+				good.setGoods_describe("");
+				good.setGoods_offer("");
+			}
+
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally {
+			db.closeStmt();
+		}
+		return good;
+	}
+
 	public List<ShoppingRecord> SearchGoodsRecordForSpecificBusinessman(String business_name) {// 查看卖出情况
 		Database db = new Database();
 		ShoppingRecord sr = new ShoppingRecord();
@@ -284,8 +329,7 @@ public class GoodsMethods {
 		int i = 0;
 		int flag = 0;
 
-		sql = "select record_id,goods_name,goods_price,goods_num,goods_offer,goods_buyer"
-				+ "from shopping_record order by record_id";
+		sql = "select record_id,goods_name,goods_price,goods_num,goods_offer,goods_buyer from shopping_record where goods_offer='"+business_name+"'";
 
 		try {
 			db.OpenConn();
@@ -345,8 +389,6 @@ public class GoodsMethods {
 		}
 		return list;
 	}
-
-	// 登录验证/查询余额信息等
 
 	/*
 	 * public boolean deleteInfo(String userid) { Database db = new Database();

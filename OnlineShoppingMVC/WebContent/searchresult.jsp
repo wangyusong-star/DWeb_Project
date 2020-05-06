@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@ page import="java.util.List" import="bean.Goods"%>
+    <%@ page import="javabean.Goods"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +40,7 @@ if (cookies != null){
 </div>
 <h1 style="float:left">Shopping!</h1>
 
-<form  action="/OnlineShopping/SearchGoods" method="post">
+<form  action="/OnlineShoppingMVC/SearchGoods" method="post">
 <div class="search">
 
             <input type="text" placeholder="Search for..." name="search"/>
@@ -61,19 +61,18 @@ if (cookies != null){
 		</thead>
 		<tbody>
 			<%
-			List<Goods> list = (List<Goods>)request.getAttribute("searchgoods");
-			if(list!=null){
-				for(Goods g :list) {					
+			Goods good = new Goods();
+            good = (Goods)request.getAttribute("searchgoods");
+			if(good!=null){					
 			%><tr>
-				<td><%=g.getGoodid() %></td>
-				<td><%=g.getGoodname() %></td>
-				<td><%=g.getPrice() %></td>
-				<td><%=g.getStock() %></td>
-				<td><%=g.getState() %></td>
-				<td><%=g.getDescribe() %></td>
+				<td><%=good.getGoods_id() %></td>
+				<td><%=good.getGoods_name() %></td>
+				<td><%=good.getGoods_price()%></td>
+				<td><%=good.getGoods_stock()%></td>
+				<td><%=good.getGoods_state()%></td>
+				<td><%=good.getGoods_describe()%></td>
 				</tr>
 			<%
-				}
 			}else{
 				%>
 			<tr>

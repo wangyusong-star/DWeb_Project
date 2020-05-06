@@ -103,8 +103,11 @@ public class CustomerMethods {
 		if(!nameRepeat(customer_name)) {
 			return false;
 		}
-		
-		sql = "update customer_info set customer_money='"+customer_money+"' where customer_name='"+customer_name+"'";
+		Customer cus = new Customer();
+		cus = searchAll(customer_name);
+		int customer_newmoneyint = Integer.parseInt(customer_money)+Integer.parseInt(cus.getCustomer_money());
+		String customer_moneys = Integer.toString(customer_newmoneyint);
+		sql = "update customer_info set customer_money='"+customer_moneys+"' where customer_name='"+customer_name+"'";
 		
 		try {
 			db.OpenConn();
