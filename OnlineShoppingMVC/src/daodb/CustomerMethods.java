@@ -120,8 +120,7 @@ public class CustomerMethods {
 			db.closeStmt();
 
 			return false;
-		}
-		
+		}		
 	}
 
 	//登录验证/查询余额信息等
