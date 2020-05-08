@@ -45,19 +45,19 @@ if (cookies != null){
 <div class="top">
 	<center> 
 	<ul>
-		<li><a href="clothes.jsp"><b>Clothes</b></a>
+		<li><a href="#"><b>Clothes</b></a>
         <ul>
-        <li><a href="clothes.jsp"><b>clothes for man</b></a></li>
-        <li><a href="clothes.jsp"><b>clothes for woman</b></a></li>
-        <li><a href="clothes.jsp"><b>clothes for child</b></a></li>
+        <li><a href="#"><b>clothes for man</b></a></li>
+        <li><a href="#"><b>clothes for woman</b></a></li>
+        <li><a href="#"><b>clothes for child</b></a></li>
         </ul>
         </li>
         
 		<li><a><b>Electronic product</b></a>
         <ul>
-        <li><a href="/OnlineShopping/ShowGoodsView"><b>computer</b></a></li>
-        <li><a href="/OnlineShopping/ShowGoodsView"><b>phone</b></a></li>
-        <li><a href="/OnlineShopping/ShowGoodsView"><b>TV</b></a></li>
+        <li><a href="#"><b>computer</b></a></li>
+        <li><a href="#"><b>phone</b></a></li>
+        <li><a href="#"><b>TV</b></a></li>
         </ul>
         </li>
 		

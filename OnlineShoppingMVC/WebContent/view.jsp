@@ -1,4 +1,4 @@
-<%@ page language="java" import="bean.Goods"
+<%@ page language="java" import="javabean.Goods"
 	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page import="java.util.List" %>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 <body>
 	<h1 align='center'>All_Goods</h1>
 	<hr />
-	<form action="/OnlineShopping/ShowGoodsView">
+	<form action="/OnlineShopping/ViewSell">
 	<table align='center' border='1' width='90%'>
 		<thead>
 			<tr>
@@ -27,12 +27,12 @@
 			List<Goods> list = (List<Goods>)request.getAttribute("goods");
 				for(Goods g :list) {					
 			%><tr>
-				<td><%=g.getGoodid() %></td>
-				<td><%=g.getGoodname() %></td>
-				<td><%=g.getPrice() %></td>
-				<td><%=g.getStock() %></td>
-				<td><%=g.getState() %></td>
-				<td><%=g.getDescribe() %></td>
+				<td><%=g.getGoods_id() %></td>
+				<td><%=g.getGoods_name() %></td>
+				<td><%=g.getGoods_price()%></td>
+				<td><%=g.getGoods_stock()%></td>
+				<td><%=g.getGoods_state()%></td>
+				<td><%=g.getGoods_describe()%></td>
 				</tr>
 			<%
 				}

@@ -166,7 +166,7 @@ public class GoodsMethods {
 				}
 			}
 
-	public boolean Buy(String goods_name,String goods_num, String goods_offer,String goods_buyer) {//π∫¬Ú
+	public boolean Buy(String goods_name,String goods_num,String goods_buyer) {//π∫¬Ú
 		int flag = 0;
 		String customer_newmoney = null;
 		// ≤È—Ø”√ªß”‡∂Óπª≤ªπª
@@ -176,6 +176,7 @@ public class GoodsMethods {
 		String getmoney = cus.getCustomer_money();
 		String getstock = good.getGoods_stock();
 		String getprice = good.getGoods_price();
+		String goodsoffer = good.getGoods_offer();
 		String goods_state = good.getGoods_state();
 		String goods_describe = good.getGoods_describe();
 		int customer_money = Integer.parseInt(getmoney);
@@ -197,7 +198,7 @@ public class GoodsMethods {
 			}
 			String id_num = Integer.toString(RecordtableNum() + 1);
 			sql = "insert into shopping_record(record_id,goods_name,goods_price,goods_num,goods_offer,goods_buyer) values('"
-					+ id_num + "','" + goods_name + "','" + goods_price + "','" + goods_num + "','" + goods_offer
+					+ id_num + "','" + goods_name + "','" + goods_price + "','" + goods_num + "','" + goodsoffer
 					+ "','" + goods_buyer + "')";
 			try {
 				db.OpenConn();
